@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>about col</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Consolas, "Courier New", monospace;
+      line-height: 1.6;
+      background: #FAFAF9;
+      color: #0E0E0C;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 3rem;
+    }
+
+    h1 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      color: #273469;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: rgb(0, 0, 255);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .top-nav {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .top-nav a {
+      margin-right: 1rem;
+    }
+
+    .bio {
+      margin-bottom: 2.5rem;
+      max-width: 52ch;
+    }
+
+    .bio p + p {
+      margin-top: 0.75rem; /* “paragraph space” between bio paragraphs */
+    }
+
+    /* dual-column section */
+    .info-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .info-column ul {
+      list-style: disc;
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .info-column li + li {
+      margin-top: 0.25rem;
+    }
+
+    /* Mobile: stack columns */
+    @media (max-width: 800px) {
+      main {
+        padding: 2rem 1.5rem 2.5rem;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- tiny nav / back link -->
+    <div class="top-nav">
+      <a href="index.html">← home</a>
+      <a href="portfolio.html">portfolio</a>
+    </div>
+
+    <header>
+      <h1>about</h1>
+    </header>
+
+    <!-- BIO SECTION -->
+    <section class="bio">
+      <p>
+        colin orr (aka coldoggo) is an artist and designer based in edinburgh, 
+        woring across digital illustration, risography, screenprinting, and other mediums. 
+        his work is colourful, geometric, and personal, highlighting the everyday beauty of things that often
+        go unnoticed, like architecutural grotesques and wildflowers.
+      </p>
+      <p>
+       colin is also simply the most handsome boy in existence and the best boyfriend everin the whole world. factually
+      </p>
+    </section>
+
+    <!-- DUAL COLUMN: EDUCATION / RECENT MARKETS -->
+    <section class="info-grid">
+      <!-- LEFT COLUMN: EDUCATION -->
+      <div class="info-column">
+        <h2>education</h2>
+        <ul>
+          <li>
+            [ba (hons) graphic design], [edinburgh college of art], [2022]<br />
+        </ul>
+      </div>
+
+      <!-- RIGHT COLUMN: RECENT MARKETS -->
+      <div class="info-column">
+        <h2>recent markets</h2>
+        <ul>
+          <li>[Market name], [city], [year]</li>
+          <li>[Market / fair], [city], [year]</li>
+          <li>[Pop-up / zine fair], [year]</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
