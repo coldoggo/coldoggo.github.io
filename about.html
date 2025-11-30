@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>about col</title>
+  <title>about</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -14,30 +16,33 @@
     body {
       font-family: Consolas, "Courier New", monospace;
       line-height: 1.6;
-      background: #FAFAF9;
+      background: #F4F4ED;         /* match home page */
       color: #0E0E0C;
       padding: 2rem 1.5rem 4rem;
+      padding-top: 10vh;           /* match home page vertical spacing */
     }
 
     main {
       max-width: 900px;
       margin: 0 auto;
+      background: #F4F4ED;         /* same as home */
       padding: 2.5rem 2rem 3rem;
     }
 
     h1 {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 2.5rem;
+      font-size: 3rem;             /* same scale as home */
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-bottom: 0.5rem;
-      color: #273469;
+      color: #E08300;              /* same orange as home page title */
     }
 
     h2 {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
+      color: #0E0E0C;
     }
 
     a {
@@ -49,22 +54,36 @@
       text-decoration: underline;
     }
 
+    /* tiny nav / back links */
     .top-nav {
       font-size: 0.9rem;
       margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
     }
 
     .top-nav a {
-      margin-right: 1rem;
+      padding-bottom: 1px;
+      border-bottom: 1px solid rgba(26, 98, 255, 0.3); /* match “instagram” links style */
+    }
+
+    /* main intro text */
+    .subtitle {
+      font-size: 0.95rem;
+      color: #777;
+      margin-bottom: 1.5rem;
+      max-width: 52ch;
     }
 
     .bio {
       margin-bottom: 2.5rem;
       max-width: 52ch;
+      font-size: 0.98rem;
+      color: #333;
     }
 
     .bio p + p {
-      margin-top: 0.75rem; /* “paragraph space” between bio paragraphs */
+      margin-top: 0.75rem; /* breathing room between paragraphs */
     }
 
     /* dual-column section */
@@ -73,6 +92,8 @@
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 2rem;
       align-items: flex-start;
+      font-size: 0.95rem;
+      color: #333;
     }
 
     .info-column ul {
@@ -83,6 +104,15 @@
 
     .info-column li + li {
       margin-top: 0.25rem;
+    }
+
+    /* subtle section labels */
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 0.5rem;
     }
 
     /* Mobile: stack columns */
@@ -97,6 +127,7 @@
     }
   </style>
 </head>
+
 <body>
   <main>
     <!-- tiny nav / back link -->
