@@ -5,11 +5,10 @@
   <title>coldoggo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- favicon placed correctly -->
+  <!-- favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
-    /* Basic reset */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -23,13 +22,11 @@
       color: #0E0E0C;
       padding: 2rem 1.5rem 4rem;
       padding-top: 10vh;
-      align-items: flex-start;
     }
 
     main {
       max-width: 900px;
       margin: 0 auto;
-      background: #F4F4ED;
       padding: 2.5rem 2rem 3rem;
     }
 
@@ -68,7 +65,6 @@
       border-bottom: 1px solid rgba(26, 98, 255, 0.3);
     }
 
-    /* Layout */
     .layout {
       display: flex;
       gap: 2rem;
@@ -83,51 +79,18 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
     }
 
     .image-column img {
       width: 100%;
       max-width: 260px;
       height: auto;
-      display: block;
       border-radius: 9px;
     }
 
-    /* Hover preview image — positioned near the link */
-    #hover-preview {
-      position: absolute;
-      left: 110%;           /* just to the right of the text */
-      top: 50%;
-      transform: translateY(-50%);
-      width: 160px;         /* neat size */
-      height: auto;
-      border-radius: 9px;
-      display: none;        /* hidden by default */
-      pointer-events: none;
-      border: 1px solid rgba(0,0,0,0.15);
-      background: #F4F4ED;
-      z-index: 100;
-    }
-
-    .hover-link {
-      position: relative;   /* anchor for #hover-preview */
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Mobile */
     @media (max-width: 800px) {
       .layout {
         flex-direction: column;
-      }
-
-      .image-column img {
-        max-width: 100%;
-      }
-
-      #hover-preview {
-        display: none; /* hide preview on mobile */
       }
     }
   </style>
@@ -137,7 +100,7 @@
   <main>
     <div class="layout">
 
-      <!-- LEFT: TEXT -->
+      <!-- LEFT -->
       <div class="text-column">
         <header>
           <h1>colin orr</h1>
@@ -147,13 +110,11 @@
             <a href="link" target="_blank">shop</a>
             <a href="mailto:coldoggo@gmail.com">get in touch!</a>
           </div>
-          
-          <p>i'm an illustrator and graphic designer based in east lothian, scotland.</p>
-          <p></p>
-          <p>i'm inspired by scottish flora and fauna, architecture, and colourful palettes.</p>
-          <p></p>
 
-          <!-- HOVER LINKS WITH PREVIEW IMAGES -->
+          <p>i'm an illustrator and graphic designer based in east lothian, scotland.</p>
+          <p>i'm inspired by scottish flora and fauna, architecture, and colourful palettes.</p>
+
+          <!-- HOVER LINKS -->
           <p class="hover-link" data-preview="images/collie.png">
             <a href="about.html">about me →</a>
           </p>
@@ -161,35 +122,31 @@
           <p class="hover-link" data-preview="images/birdy.jpg">
             <a href="portfolio.html">my work →</a>
           </p>
-
         </header>
       </div>
 
-      <!-- RIGHT: STATIC PHOTO -->
+      <!-- RIGHT -->
       <div class="image-column">
-        <img src="images/vhm_1764525183.png" alt="biblically gorgeous col" />
+        <img id="main-photo" src="images/vhm_1764525183.png" alt="right column image" />
       </div>
 
     </div>
   </main>
 
-  <!-- The hover preview image (single, reused) -->
-  <img id="hover-preview" src="" alt="" />
-
-  <!-- JAVASCRIPT (instant show/hide, anchored to each link) -->
+  <!-- JS: swap right-side image -->
   <script>
-    const previewImg = document.getElementById("hover-preview");
+    const mainPhoto = document.getElementById("main-photo");
     const links = document.querySelectorAll(".hover-link");
+    const defaultImage = "images/vhm_1764525183.png"; // restore when not hovering
 
     links.forEach(link => {
       link.addEventListener("mouseenter", () => {
-        previewImg.src = link.dataset.preview;
-        link.appendChild(previewImg);        // attach image to the hovered link
-        previewImg.style.display = "block";  // show instantly
+        const newImg = link.dataset.preview;
+        mainPhoto.src = newImg;
       });
 
       link.addEventListener("mouseleave", () => {
-        previewImg.style.display = "none";   // hide instantly
+        mainPhoto.src = defaultImage;
       });
     });
   </script>
