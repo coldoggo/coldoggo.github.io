@@ -93,21 +93,29 @@
       display: block;
       border-radius: 9px;
     }
+  
+  /* Hover preview image — positioned near the link */
+  #hover-preview {
+    position: absolute;
+    left: 120%;         /* just to the right of the text */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 160px;       /* smaller, neat size */
+    height: auto;
+    border-radius: 9px;
+    display: none;
+    pointer-events: none;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: #F4F4ED;
+    z-index: 100;
+  }
+  
+  .hover-link {
+    position: relative;  /* anchor for positioning */
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
 
-    /* --- Hover Preview Image (instant, no fade) --- */
-    #hover-preview {
-      position: fixed;
-      right: 5vw;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 230px;
-      height: auto;
-      border-radius: 9px;
-      display: none;      /* hidden until hover */
-      pointer-events: none;
-      z-index: 1000;
-      border: 1px solid rgba(0,0,0,0.15);
-    }
 
     .hover-link {
       display: inline-block;
@@ -152,7 +160,8 @@
           <p class="hover-link" data-preview="images/collie.png">
             <a href="about.html">about me →</a>
           </p>
-
+          <p>
+          </p>
           <p class="hover-link" data-preview="images/birdy.jpg">
             <a href="portfolio.html">my work →</a>
           </p>
@@ -172,6 +181,7 @@
   <img id="hover-preview" src="" alt="" />
 
   <!-- JAVASCRIPT (instant show/hide) -->
+  
   <script>
     const previewImg = document.getElementById("hover-preview");
     const links = document.querySelectorAll(".hover-link");
