@@ -93,32 +93,27 @@
       display: block;
       border-radius: 9px;
     }
-  
-  /* Hover preview image — positioned near the link */
-  #hover-preview {
-    position: absolute;
-    left: 120%;         /* just to the right of the text */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 160px;       /* smaller, neat size */
-    height: auto;
-    border-radius: 9px;
-    display: none;
-    pointer-events: none;
-    border: 1px solid rgba(0,0,0,0.15);
-    background: #F4F4ED;
-    z-index: 100;
-  }
-  
-  .hover-link {
-    position: relative;  /* anchor for positioning */
-    display: inline-block;
-    margin-bottom: 0.5rem;
-  }
 
+    /* Hover preview image — positioned near the link */
+    #hover-preview {
+      position: absolute;
+      left: 110%;           /* just to the right of the text */
+      top: 50%;
+      transform: translateY(-50%);
+      width: 160px;         /* neat size */
+      height: auto;
+      border-radius: 9px;
+      display: none;        /* hidden by default */
+      pointer-events: none;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: #F4F4ED;
+      z-index: 100;
+    }
 
     .hover-link {
+      position: relative;   /* anchor for #hover-preview */
       display: inline-block;
+      margin-bottom: 0.5rem;
     }
 
     /* Mobile */
@@ -126,9 +121,11 @@
       .layout {
         flex-direction: column;
       }
+
       .image-column img {
         max-width: 100%;
       }
+
       #hover-preview {
         display: none; /* hide preview on mobile */
       }
@@ -160,8 +157,7 @@
           <p class="hover-link" data-preview="images/collie.png">
             <a href="about.html">about me →</a>
           </p>
-          <p>
-          </p>
+
           <p class="hover-link" data-preview="images/birdy.jpg">
             <a href="portfolio.html">my work →</a>
           </p>
@@ -177,11 +173,10 @@
     </div>
   </main>
 
-  <!-- The hover preview image -->
+  <!-- The hover preview image (single, reused) -->
   <img id="hover-preview" src="" alt="" />
 
-  <!-- JAVASCRIPT (instant show/hide) -->
-  
+  <!-- JAVASCRIPT (instant show/hide, anchored to each link) -->
   <script>
     const previewImg = document.getElementById("hover-preview");
     const links = document.querySelectorAll(".hover-link");
@@ -189,11 +184,12 @@
     links.forEach(link => {
       link.addEventListener("mouseenter", () => {
         previewImg.src = link.dataset.preview;
-        previewImg.style.display = "block";
+        link.appendChild(previewImg);        // attach image to the hovered link
+        previewImg.style.display = "block";  // show instantly
       });
 
       link.addEventListener("mouseleave", () => {
-        previewImg.style.display = "none";
+        previewImg.style.display = "none";   // hide instantly
       });
     });
   </script>
