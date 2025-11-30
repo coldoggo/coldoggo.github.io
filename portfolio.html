@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <style>
+    /* Basic reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Consolas, "Courier New", monospace;
+      line-height: 1.6;
+      background: #F4F4ED;
+      color: #0E0E0C;
+      padding: 2rem 1.5rem 4rem;
+      align-items: flex-start;
+      padding-top: 10vh;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #F4F4ED;
+      padding: 2.5rem 2rem 3rem;
+    }
+
+    h1 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0rem;
+      color: #E08300;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: rgb(0, 0, 255);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 0.4rem 0 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .social-links a {
+      padding-bottom: 1px;
+      border-bottom: 1px solid rgba(26, 98, 255, 0.3);
+    }
+
+    /* --- ART GRID SECTION --- */
+
+    .intro {
+      margin-bottom: 2.5rem;
+      font-size: 0.98rem;
+      color: #555;
+    }
+
+    .art-grid {
+      margin-top: 1rem;
+    }
+
+    .art-grid h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      color: #0E0E0C;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .art-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .art-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 9px;
+      display: block;
+    }
+
+    .art-caption {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      font-family: Consolas, "Courier New", monospace;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .art-title {
+      font-weight: 600;
+      color: #0E0E0C;
+    }
+
+    .art-meta {
+      display: block;
+      font-size: 0.86rem;
+      color: #777;
+      margin-top: 0.1rem;
+    }
+
+    /* Back link */
+    .back-link {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 800px) {
+      main {
+        padding: 2rem 1.5rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="back-link">
+        <a href="index.html">← back to home</a>
+      </div>
+
+      <h1>portfolio</h1>
+
+    </header>
+
+    <section class="art-grid">
+      <h2>illustration & prints</h2>
+
+      <div class="grid">
+        <!-- ARTWORK 1 -->
+        <figure class="art-item">
+          <img src="images/art1.jpg" />
+          <figcaption class="art-caption">
+            <span class="art-title">“i see you in everything”</span>
+            <span class="art-meta">riso · 2025</span>
+          </figcaption>
+        </figure>
+
+        <!-- ARTWORK 2 -->
+        <figure class="art-item">
+          <img src="images/art2.jpg" />
+          <figcaption class="art-caption">
+            <span class="art-title">“happy home”</span>
+            <span class="art-meta">riso · 2025</span>
+          </figcaption>
+        </figure>
+
+        <!-- ARTWORK 3 -->
+        <figure class="art-item">
+          <img src="images/art3.jpg" />
+          <figcaption class="art-caption">
+            <span class="art-title">“puppy holidays”</span>
+            <span class="art-meta">riso · 2025</span>
+          </figcaption>
+        </figure>
+
+        <!-- ARTWORK 4 -->
+        <figure class="art-item">
+          <img src="images/art4.jpg" />
+          <figcaption class="art-caption">
+            <span class="art-title">“season's greetings”</span>
+            <span class="art-meta">riso · 2025</span>
+          </figcaption>
+        </figure>
+
+        <!-- ARTWORK 5 -->
+        <figure class="art-item">
+          <img src="images/art5.jpg" />
+          <figcaption class="art-caption">
+            <span class="art-title">“kitty gargoyle”</span>
+            <span class="art-meta">digital illustration · 2025</span>
+          </figcaption>
+        </figure>
+
+        <!-- ARTWORK 6 -->
+        <figure class="art-item">
+          <img src="images/art6.jpg" />
+          <figcaption class="art-caption">
+            <span class="art-title">“three hares”</span>
+            <span class="art-meta">digital illustration, handmade sticker · 2025</span>
+          </figcaption>
+        </figure>
+
+       <!-- ARTWORK 7 -->
+        <figure class="art-item">
+          <img src="images/art7.jpg" />
+          <figcaption class="art-caption">
+            <span class="art-title">“birdwatching”</span>
+            <span class="art-meta">digital illustration · 2025</span>
+          </figcaption>
+        </figure>
+
+       <!-- ARTWORK 8 -->
+        <figure class="art-item">
+          <img src="images/art8.jpg" />
+          <figcaption class="art-caption">
+            <span class="art-title">“birdwatching”</span>
+            <span class="art-meta">digital illustration · 2025</span>
+          </figcaption>
+        </figure>
+        <!-- duplicate / edit these blocks for more pieces -->
+      </div>
+    </section>
+  </main>
+</body>
+</html>
