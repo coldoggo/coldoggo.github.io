@@ -135,6 +135,60 @@
       font-size: 0.9rem;
       margin-bottom: 1.5rem;
     }
+      .project{
+    margin-top: 3rem;
+  }
+  
+  .project-title{
+    margin-bottom: 0.75rem;
+  }
+  
+  /* two columns under the text */
+  .two-col{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+  }
+  
+  .card{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .card img{
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+    display: block;
+  }
+  
+  .card-caption{
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+  }
+  
+  .card-title{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 600;
+    color: #0E0E0C;
+  }
+  
+  .card-meta{
+    display: block;
+    font-size: 0.86rem;
+    color: #777;
+    margin-top: 0.1rem;
+  }
+  
+  /* stack on mobile */
+  @media (max-width: 800px){
+    .two-col{ grid-template-columns: 1fr; }
+  }
+
 
     /* Mobile tweaks */
     @media (max-width: 800px) {
