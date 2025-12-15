@@ -15,10 +15,12 @@
       padding: 0;
     }
 
+    html { background: #F4F4ED; }
+
     body {
       font-family: Consolas, "Courier New", monospace;
       line-height: 1.6;
-      background: #F4F4ED;
+      background: transparent; /* <-- change this */
       color: #0E0E0C;
       padding: 2rem 1.5rem 4rem;
       padding-top: 10vh;
@@ -113,18 +115,18 @@
     background: rgba(244,244,237,0.75); /* same vibe as #F4F4ED */
   }
   
-  .reel{
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 24px;
-    padding: 0 24px;
-    opacity: 0.25;                 /* low opacity works */
-    animation: scroll 18s linear infinite;
-    will-change: transform;
-  }
+ .reel{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: flex;
+  gap: 24px;
+  padding: 0 24px;
+  opacity: 0.25;
+  animation: scroll 18s linear infinite;
+  will-change: transform;
+}
+
   
   .reel img{
     height: 180px;
@@ -132,10 +134,11 @@
     border-radius: 12px;
   }
   
-  @keyframes scroll{
-    from { transform: translate(0, -50%); }
-    to   { transform: translate(-50%, -50%); }
-  }
+ 
+@keyframes scroll{
+  from { transform: translate(0, -50%); }
+  to   { transform: translate(-50%, -50%); }
+}
    .bg-reel.active { opacity: 1; }
   /* make sure your page content is above the bg */
   main{
