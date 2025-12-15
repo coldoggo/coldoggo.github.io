@@ -106,6 +106,35 @@
       margin-top: 0.25rem;
     }
 
+    .about-layout{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+  }
+  
+  /* let the bio styles apply, but remove the old bottom margin */
+  .about-layout .bio{
+    margin-bottom: 0;
+  }
+  
+  /* photo styling */
+  .about-photo img{
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+    display: block;
+  }
+  
+  /* stack on mobile */
+  @media (max-width: 800px){
+    .about-layout{
+      grid-template-columns: 1fr;
+    }
+  }
+
+
     /* subtle section labels */
     .section-label {
       font-size: 0.8rem;
@@ -141,18 +170,26 @@
     </header>
 
     <!-- BIO SECTION -->
-    <section class="bio">
+    <section class="about-layout">
+    <div class="bio">
       <p>
-        colin orr (aka coldoggo) is an artist and designer based in edinburgh, 
-        woring across digital illustration, risography, screenprinting, and other mediums. 
-        his work is colourful, geometric, and personal, highlighting the everyday beauty of things that often
+        i'm an artist and designer based in edinburgh, 
+        working across digital illustration, risography, screenprinting, and other mediums. 
+        my work is colourful, geometric, and personal, highlighting the everyday beauty of things that often
         go unnoticed, like architecutural grotesques and wildflowers.
       </p>
       <p>
        colin is also simply the most handsome boy in existence and the best boyfriend everin the whole world. factually
       </p>
-    </section>
-
+      <p>
+        i did the illustration for visual novel <a href="https://paranoidhawk.itch.io/lookouts">Lookouts</a> 
+        and the graphic design for yearly charity magazine <a href="https://garfieldzine.bigcartel.com/products">Garfzine.</a>
+      </p>
+    </div>
+   <div class="about-photo">
+      <img src="images/collie.jpg" alt="Portrait photo of Colin Orr">
+    </div>
+      </section>
     <!-- DUAL COLUMN: EDUCATION / RECENT MARKETS -->
     <section class="info-grid">
       <!-- LEFT COLUMN: EDUCATION -->
@@ -169,7 +206,7 @@
         <h2>recent markets</h2>
         <ul>
           <li>out of the blueprint, edinburgh, 2025</li>
-          <li>MNB scotland, leith arches, september 2025</li>
+          <li>MNB scotland, leith arches, 2025</li>
         </ul>
       </div>
     </section>
