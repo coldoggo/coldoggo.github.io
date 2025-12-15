@@ -143,6 +143,37 @@
       color: #777;
       margin-bottom: 0.5rem;
     }
+  
+      /* square photo box */
+  .about-photo{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 9px;
+  }
+  
+  /* all images fill the square */
+  .about-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* hover previews sit on top and fade in */
+  .hover-photo{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .25s ease;
+    pointer-events: none;
+  }
+  
+  .hover-photo.active{
+    opacity: 1;
+  }
+
 
     /* Mobile: stack columns */
     @media (max-width: 800px) {
@@ -182,13 +213,19 @@
        colin is also simply the most handsome boy in existence and the best boyfriend everin the whole world. factually
       </p>
       <p>
-        i did the illustration for visual novel <a href="https://paranoidhawk.itch.io/lookouts">Lookouts</a> 
-        and the graphic design for yearly charity magazine <a href="https://garfieldzine.bigcartel.com/products">Garfzine.</a>
+        i did the illustration for visual novel <a href="https://paranoidhawk.itch.io/lookouts" data-preview="lookouts" target="_blank" rel="noopener">Lookouts</a> 
+        and the graphic design for yearly charity magazine <a href="https://garfieldzine.bigcartel.com/products" data-preview="garfzine" target="_blank" rel="noopener">Garfzine.</a>
       </p>
     </div>
-   <div class="about-photo">
-      <img src="images/collie.jpg" alt="Portrait photo of Colin Orr">
-    </div>
+
+<div class="about-photo">
+  <img class="base-photo" src="images/collie.png" alt="Portrait">
+
+  <img class="hover-photo" data-hover="lookouts" src="images/lookouts_gif.gif" alt="">
+  <img class="hover-photo" data-hover="garfzine" src="images/FzzZonrXoAIngva.jpeg" alt="">
+</div>
+
+
       </section>
     <!-- DUAL COLUMN: EDUCATION / RECENT MARKETS -->
     <section class="info-grid">
@@ -210,6 +247,26 @@
         </ul>
       </div>
     </section>
+    
+    <script>
+  const hoverLinks = document.querySelectorAll("a[data-preview]");
+  const hoverPhotos = document.querySelectorAll(".hover-photo");
+
+  hoverLinks.forEach(link => {
+    const key = link.dataset.preview;
+
+    link.addEventListener("mouseenter", () => {
+      hoverPhotos.forEach(img => img.classList.remove("active"));
+      document.querySelector(`.hover-photo[data-hover="${key}"]`)?.classList.add("active");
+    });
+
+    link.addEventListener("mouseleave", () => {
+      hoverPhotos.forEach(img => img.classList.remove("active"));
+    });
+  });
+</script>
+
+    
   </main>
 </body>
 </html>
