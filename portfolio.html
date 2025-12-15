@@ -199,6 +199,34 @@
     margin-top: 0.1rem;
   }
   
+      /* Lightbox overlay */
+  .lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(14,14,12,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 999;
+  }
+  
+  .lightbox.active{
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  #lightbox-img{
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    cursor: zoom-out;
+  }
+
+  
   /* stack on mobile */
   @media (max-width: 800px){
     .two-col{ grid-template-columns: 1fr; }
@@ -320,8 +348,28 @@
       </a>
     </div>
   </section>
+  <div id="lightbox" class="lightbox">
+    <img id="lightbox-img" alt="">
+  </div>
 
-    
+    <script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.querySelectorAll(".art-item img").forEach(img => {
+    img.style.cursor = "zoom-in";
+
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add("active");
+    });
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+  });
+</script>
+
   </main>
 </body>
 </html>
