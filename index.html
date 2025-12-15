@@ -93,10 +93,79 @@
         flex-direction: column;
       }
     }
+
+      /* --- scrolling bg layer --- */
+  .bg-reel{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .25s ease;
+    overflow: hidden;
+  }
+  
+  /* optional wash so text stays readable */
+  .bg-reel::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(244,244,237,0.75); /* same vibe as #F4F4ED */
+  }
+  
+  .reel{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 24px;
+    padding: 0 24px;
+    opacity: 0.25;                 /* low opacity works */
+    animation: scroll 18s linear infinite;
+    will-change: transform;
+  }
+  
+  .reel img{
+    height: 180px;
+    width: auto;
+    border-radius: 12px;
+  }
+  
+  @keyframes scroll{
+    from { transform: translate(0, -50%); }
+    to   { transform: translate(-50%, -50%); }
+  }
+   .bg-reel.active { opacity: 1; }
+  /* make sure your page content is above the bg */
+  main{
+    position: relative;
+    z-index: 1;
+  }
+
   </style>
 </head>
 
 <body>
+  <!-- scrolling background (only shown on "my work" hover) -->
+<div class="bg-reel" aria-hidden="true">
+  <div class="reel">
+    <img src="images/crimbo.jpg" alt="">
+    <img src="images/birdy_watch.jpg" alt="">
+    <img src="images/dogy.jpg" alt="">
+    <img src="images/wulf.jpg" alt="">
+    <img src="images/ecosse.jpg" alt="">
+    <img src="images/patches.jpg" alt="">
+
+    <img src="images/crimbo.jpg" alt="">
+    <img src="images/birdy_watch.jpg" alt="">
+    <img src="images/dogy.jpg" alt="">
+    <img src="images/wulf.jpg" alt="">
+    <img src="images/ecosse.jpg" alt="">
+    <img src="images/patches.jpg" alt="">
+  </div>
+</div>
+
   <main>
     <div class="layout">
 
@@ -119,9 +188,10 @@
             <a href="about.html">about me →</a>
           </p>
 
-          <p class="hover-link" data-preview="images/birdy.jpg">
+          <p class="hover-link" id="work-link" data-preview="images/birdy.jpg">
             <a href="portfolio.html">my work →</a>
           </p>
+
         </header>
       </div>
 
@@ -149,6 +219,15 @@
         mainPhoto.src = defaultImage;
       });
     });
+
+  
+    const bgReel = document.querySelector(".bg-reel");
+    const workLink = document.getElementById("work-link");
+  
+    workLink.addEventListener("mouseenter", () => bgReel.classList.add("active"));
+    workLink.addEventListener("mouseleave", () => bgReel.classList.remove("active"));
+
+
   </script>
 
 </body>
