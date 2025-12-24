@@ -115,17 +115,20 @@
     background: rgba(244,244,237,0.75); /* same vibe as #F4F4ED */
   }
   
- .reel{
+.reel{
   position: absolute;
   top: 50%;
   left: 0;
+  transform: translateY(-50%);
   display: flex;
   gap: 24px;
   padding: 0 24px;
   opacity: 0.25;
-  animation: scroll 18s linear infinite;
+  width: max-content;          /* THIS IS THE FIX */
+  animation: scroll 25s linear infinite;
   will-change: transform;
 }
+
 
   
   .reel img{
@@ -139,12 +142,32 @@
   from { transform: translate(0, -50%); }
   to   { transform: translate(-50%, -50%); }
 }
+
    .bg-reel.active { opacity: 1; }
   /* make sure your page content is above the bg */
   main{
     position: relative;
     z-index: 1;
   }
+
+    .brand-footer{
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.brand-logo{
+  width: 140px;        /* adjust if needed */
+  max-width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+.brand-copy{
+  font-size: 0.9rem;
+  color: #777;
+}
+
 
   </style>
 </head>
@@ -204,6 +227,12 @@
       </div>
 
     </div>
+
+    <footer class="brand-footer">
+  <img src="images/pinklogo.png" alt="coldoggo logo" class="brand-logo">
+  <div class="brand-copy">© coldoggo 2025</div>
+</footer>
+
   </main>
 
   <!-- JS: swap right-side image -->
